@@ -13,9 +13,13 @@ Optus Mobile这边默认APN下只有单栈IPv4，所以只会访问这个“海�
 
 懒人方法：
 1.在iOS设备上用Safari打开以下链接，选择安装描述文件到iPhone上
+
 https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra.No.IPv6.mobileconfig
+
 2.前往系统设置中启用下载的配置描述文件
+
 3.打开移动数据，访问ip.sb，确认是否只有ipv4地址（没有ipv6地址）
+
 4.测试移动数据下qq群上传/下载图片速度。
 
 自助方法（如果不放心上面的profile的话）：
