@@ -1,4 +1,4 @@
-# No_Telstra_IPv6
+# Fuck_Telstra_IPv6
 朋友最近去JB签了Telstra套餐之后，反馈用流量的时候，其他本地和海外应用都很快，但是下载和上传qq的图片基本上是龟速，而且很容易失败，相比之下之前使用的optus网络就很快。
 
 研究了一下之后，发现qq负责上传和下载群聊图片的域名gchat.qpic.cn，从海外可以同时解析出ipv4和ipv6两种地址。
