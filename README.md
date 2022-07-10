@@ -14,7 +14,7 @@ Optus Mobile这边默认APN下只有单栈IPv4，所以只会访问这个“海�
 懒人方法：
 1.在iOS设备上用Safari打开以下链接，选择安装描述文件到iPhone上
 
-https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra.No.IPv6.mobileconfig
+https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_sucks.mobileconfig
 
 2.前往系统设置中启用下载的配置描述文件
 
