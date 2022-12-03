@@ -28,3 +28,11 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 
 自助方法（如果不放心上面的profile的话）：
 1.请自行参考https://www.youtube.com/watch?v=Nzx9T7GtmT4
+
+## 对于某些好奇为什么小红书和微信刷不出来的原因
+省流版：Telstra的DNS解析v6地址有问题，但是解析出来的v4地址没问题。所以关掉IPv6之后就优先走解析出来的v4地址了，访问就没问题了。
+
+详细版：通过Telstra的DNS解析小红书图片域名sns-img-hw.xhscdn.com，AAAA结果（v6解析）解析出来是一个指向Telstra的地址（正确的解析应该也是一个属于Akamai悉尼的IPv6地址），然后A结果（v4解析）是正确的akamai CDN的地址。盲猜是Telstra所提供的DNS的问题，导致小红书图片域名的AAAA结果被解析到一个无法访问的地址，从而加载不出任何图片（因为有v6的时候，优先通过v6访问）。
+### 通过Telstra移动网络解析小红书的图片域名
+
+![40147af63ecfe7cde2acd89bbed94363](https://user-images.githubusercontent.com/47912037/205447304-c956123b-f87d-4c36-b70a-ebff61b80fd4.png)
