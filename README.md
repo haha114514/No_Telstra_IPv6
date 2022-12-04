@@ -23,6 +23,9 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 
 3.关闭Wi-Fi然后打开移动数据，访问ip.sb，确认是否只有IPv4地址（没有IPv6地址）
 
+<img width="300" alt="image" src="https://user-images.githubusercontent.com/47912037/205486292-8fafeed2-3886-4c87-83de-bf643e50ba5b.png">
+
+
 4.测试移动数据下qq上传/下载图片速度。
 
 ### PS.目前已知有个小问题是，有些时候系统更新或者更换sim卡（包括切换实体sim或者esim），可能会导致配置文件失效。如果突然出现图片又加载不出来了或者微信又卡了，还是访问ip.sb看看ipv6是不是回来了。如果回来了的话，删掉描述文件再重新添加一遍即可
