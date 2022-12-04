@@ -38,6 +38,10 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 
 <img width="437" alt="image" src="https://user-images.githubusercontent.com/47912037/205472849-4d6bb3fe-0374-4d59-b53f-736db2fb0e4e.png">
 
+通过查询，该IPv6是属于Telstra的
+
+<img width="397" alt="image" src="https://user-images.githubusercontent.com/47912037/205472926-b65af806-dec1-4b70-a7fc-bbbe319a3039.png">
+
 #### 默认telstra.internet+ipv4/v6(protocol)或者telstra.wap+ipv6(Protocol)下的curl信息，可以看到是优先走了解析出来了有问题的v6地址的
 
 <img width="434" alt="image" src="https://user-images.githubusercontent.com/47912037/205472825-421844b3-bec1-4845-801e-22da758ac5b2.png">
