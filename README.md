@@ -2,7 +2,6 @@
 
 ## ** Update 03/12/2022 使用本配置文件可以有效解决小红书图片无法加载，微信无法刷新消息等问题
 
-
 朋友最近去JB签了Telstra套餐之后，反馈用流量的时候，其他本地和海外应用都很快，但是下载和上传qq的图片基本上是龟速，而且很容易失败，相比之下之前使用的optus网络就很快。
 
 研究了一下之后，发现qq负责上传和下载群聊图片的域名gchat.qpic.cn，从海外可以同时解析出ipv4和ipv6两种地址。
@@ -37,4 +36,15 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 详细版：通过Telstra的DNS解析小红书图片域名sns-img-hw.xhscdn.com，AAAA结果（v6解析）解析出来是一个指向Telstra的地址（正确的解析应该也是一个属于Akamai悉尼的IPv6地址），然后A结果（v4解析）是正确的akamai CDN的地址。盲猜是Telstra所提供的DNS的问题，导致小红书图片域名的AAAA结果被解析到一个无法访问的地址，从而加载不出任何图片（因为有v6的时候，优先通过v6访问）。
 ### 通过Telstra移动网络解析小红书的图片域名
 
-![40147af63ecfe7cde2acd89bbed94363](https://user-images.githubusercontent.com/47912037/205447304-c956123b-f87d-4c36-b70a-ebff61b80fd4.png)
+<img width="437" alt="image" src="https://user-images.githubusercontent.com/47912037/205472849-4d6bb3fe-0374-4d59-b53f-736db2fb0e4e.png">
+
+#### 默认telstra.internet+ipv4/v6(protocol)或者telstra.wap+ipv6(Protocol)下的curl信息，可以看到是优先走了解析出来了有问题的v6地址的
+
+<img width="434" alt="image" src="https://user-images.githubusercontent.com/47912037/205472825-421844b3-bec1-4845-801e-22da758ac5b2.png">
+
+#### 修改为telstra.internet+ipv4之后的，可以看到是走了解析出来正常的v4地址的
+
+<img width="419" alt="image" src="https://user-images.githubusercontent.com/47912037/205472778-9526fc4c-707f-4e9d-8513-f2438258ecb4.png">
+
+
+
