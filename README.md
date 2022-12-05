@@ -45,6 +45,8 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 
 <img width="397" alt="image" src="https://user-images.githubusercontent.com/47912037/205472926-b65af806-dec1-4b70-a7fc-bbbe319a3039.png">
 
+### **Update 05/12/2022 看来这个IP是Telstra用于464XLAT隧道的，所以不是Telstra的DNS问题，而是这个隧道突然炸掉了，所以导致维州这几天（01/12/2022-05/12/2022）炸掉了，目前应该是已经修好了的。
+
 #### 默认telstra.internet+ipv4/v6(protocol)或者telstra.wap+ipv6(Protocol)下的curl信息，可以看到是优先走了解析出来了有问题的v6地址的
 
 <img width="434" alt="image" src="https://user-images.githubusercontent.com/47912037/205472825-421844b3-bec1-4845-801e-22da758ac5b2.png">
