@@ -47,6 +47,39 @@ https://raw.githubusercontent.com/haha114514/No_Telstra_IPv6/main/Telstra_IPv6_s
 
 ### **Update 05/12/2022 看来这个IP是Telstra用于464XLAT隧道或者反向代理（透明代理）的，所以不是Telstra的DNS问题，而是这个隧道突然炸掉了，所以导致维州这几天（01/12/2022-05/12/2022）炸掉了，目前应该是已经修好了的。
 
+### 洗衣机论坛对这方面的解释：
+Telstra is using DNS64 and NAT64 on its 'telstra.wap' APN.
+
+Find more detail here: /thread/3vy5n749
+
+Basically the following occurs.
+
+Your device does a DNS query to Telstra's DNS server.
+Telstra's DNS server queries another DNS server for the A (IPv4) and AAAA (IPv6) record.
+The response to Telstra's DNS server is only a A record.
+NSLOOKUP test1.sunshinecomputer.net.au 8.8.8.8 returns only an A record
+Telstra DNS's in this case does a DNS64 translation.
+Takes the returned IP Address, and converts it into hex.
+144, 130, 97, 86 -> 0x90, 0x82, 0x61, 0x56
+Appends the hex of the IP to the IPv6 prefix for NAT64 translation
+2001:8004:11d0:4e2a::/96 is the prefix
+2001:8004:11d0:4e2a::9082:6156
+Telstra's DNS returns the AAAA record of '2001:8004:11d0:4e2a::9082:6156' to the initial device that made the request.
+The device with the IPv6 address for the target server, opens the connection as it would normally with an IPv4 address, but with an IPv6 target.
+NOTE: It is key at this point that the device and application must support IPv6.
+The packet with the target IPv6 address is within the NAT64 prefix, and is routed to Telstra's NAT64 service.
+The NAT64 service receives the packet, and does a translation from the IPv6 address back to the IPv4 address and sets itself as the source IPv4 address. It keeps a record of this state
+The target server receives the packet with the IPv4 source as NAT64 IPv4 address
+Server responds to the packet
+NAT64 receives the IPv4 packet from the server
+NAT64 references the state of the initial packet to the server, and uses that to update the destination of the packet to the IPv6 address of the device, and sends the packet.
+Device then receives the packet via IPv6 from the NAT64 service.
+This is good, only if:
+
+Developers support IPv6 on their devices and applications without needing to deploy new IPv6 servers.
+Developers hadn't hardcoded any IPv4 addresses (requires DNS to update the IPv4 address)
+There is an extension of this called 464XLAT. The above still occurs, but the device still has its own IPv4 address, and allows applications to use the IPv4 address and the device translates the IPv4 address to IPv6 and forwards to the NAT64 service still. 
+
 #### 默认telstra.internet+ipv4/v6(protocol)或者telstra.wap+ipv6(Protocol)下的curl信息，可以看到是优先走了解析出来了有问题的v6地址的
 
 <img width="434" alt="image" src="https://user-images.githubusercontent.com/47912037/205472825-421844b3-bec1-4845-801e-22da758ac5b2.png">
