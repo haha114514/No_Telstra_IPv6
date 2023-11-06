@@ -1,2 +1,2 @@
 # No_Telstra_IPv6
-## Removed due to copyright claim from Telstra Corporation Ltd.
+## Update 06/11/2023 Removed due to copyright claim from Telstra Corporation Ltd.
